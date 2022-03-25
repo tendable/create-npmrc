@@ -5,10 +5,10 @@ branding:
   icon: 'box'
 inputs:
   org_name:
-    description: 'Github repository name'
-    required: true
+    description: 'Github organization name'
+    required: false
   auth_token:
-    description: 'AuthToken for github'
+    description: 'Auth token for Github'
     required: false
 runs:
   using: 'docker'
