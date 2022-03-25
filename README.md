@@ -1,33 +1,30 @@
-# Create a .npmrc file for the github repository
+# Create a .npmrc file for the Github Package Registry
 
-Github workflow action to create `.npmrc` file for github to the root folder
+Github action to create `.npmrc` file for Github packages in the root folder
 
 Pass all sensitive data using secrets.
 
 ## Inputs
 
-### `org_name`
+### `org_name` (optional)
 
-Organization name (Github repository name)
+The organization name, defaults to `tendable`
 
 ### `auth_token` (optional)
 
-AuthToken that is able to download files from the repository, can also be passed as env and it's rather recommended this way
-
+Auth token that is able to download files from the repository, can also be passed as env. It seems like passing it as a variable is preferred.
 
 ## Example usage
 
 ```ylm
 uses: tendable/create-npmrc@3
 with:
-  org_name: tendable
-  env:
-    AUTH_TOKEN: ${{ secrets.github_auth_token }}
+  auth_token: ${{ secrets.github_auth_token }}
 ```
 
 ## Example output
 
 ```npmrc
-registry = https://npm.pkg.github.com/tendable
+@tendable:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=31352d11daasdf769942919dsafas594a5d
 ```
